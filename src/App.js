@@ -18,9 +18,11 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <input type="text" value={input} onChange={(e)=>updateInput(e.target.value)} />
-      <button onClick={()=>addToList(input)}>ADD</button>
-      <ToDoList todoList={todoList} updateList={updateList}/>    
+      <form>
+        <input type="text" value={input} onChange={(e)=>updateInput(e.target.value)} />
+        <button onClick={()=>addToList(input)}>ADD</button>
+        <ToDoList todoList={todoList} updateList={updateList}/>
+      </form>    
     </div>
   );
 }
