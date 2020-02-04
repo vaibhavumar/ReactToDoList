@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
 import ToDoList from '../src/Components/list';
-import {Form, Input, Button} from 'antd';
+import {Form, Input} from 'antd';
 
 let keyCount = 1; 
 
 const ListForm = (props) => {
   const [todoList, updateList] = useState([]);
 
-  const addToList = (e) => {
-    e.preventDefault();
+  const addToList = () => {
     props.form.validateFields((err, values)=>{
       if(!err){
         updateList(todoList.concat({
@@ -24,17 +23,14 @@ const ListForm = (props) => {
 
   return (
     <div className="App">
-      <Form onSubmit={(e)=>addToList(e)} layout="inline">
+      <Form layout="inline">
       <Form.Item>
                 {getFieldDecorator('value', {
                     rules: [{ required: true, message: 'List item is required' }],
                 })(
-                    <Input type="primary" style={{ width: 200 }} />
+                    <Input.Search enterButton="ADD" onSearch={()=>addToList()} style={{width: '800px'}} />
                 )}
             </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit">ADD</Button>
-        </Form.Item>
       </Form>
         <ToDoList todoList={todoList} updateList={updateList}/>
     </div>
