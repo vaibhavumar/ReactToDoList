@@ -1,12 +1,19 @@
 import React, {useState} from 'react';
 import ToDoList from '../src/Components/list';
 
+
+let keyCount = 1; 
+
 function App() {
   const [input, updateInput] = useState('');
   const [todoList, updateList] = useState([]);
 
   addToList = (value) => {
-    updateList(todoList.concat(input));
+    updateList(todoList.concat({
+      key: keyCount++ ,
+      todos: value
+    }));
+    updateInput('');
   }
 
   return (
