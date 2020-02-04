@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React Again!!!!!!! Forever Redux
+          Learn React Again!!!!!!! Forever React
         </a>
       </header>
     </div>
