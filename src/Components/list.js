@@ -1,5 +1,4 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import { List, Checkbox } from 'antd';
 
 class ToDoList extends React.Component{
@@ -11,7 +10,6 @@ class ToDoList extends React.Component{
   
   
     checkboxchange(event,index){
-      console.log(index);
       this.props.updateList([...this.props.todoList.slice(0,index),...this.props.todoList.slice(index+1)]);
     }
     
