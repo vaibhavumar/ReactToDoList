@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import List from '../src/Components/list';
+import ToDoList from '../src/Components/list';
 
 
 let keyCount = 1; 
@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <input type="text" value={input} onChange={(e)=>updateInput(e.target.value)} />
       <button onClick={addToList(input)}>ADD</button>
-      <List todoList={todoList} updateList={updateList}/>    
+      <ToDoList todoList={todoList} updateList={updateList}/>    
     </div>
   );
 }
