@@ -18,7 +18,7 @@ const App = (props) => {
 
   return (
     <div className="App">
-      <form>
+      <form onSubmit={}>
         <input type="text" value={input} onChange={(e)=>updateInput(e.target.value)} />
         <button onClick={()=>addToList(input)}>ADD</button>
         <ToDoList todoList={todoList} updateList={updateList}/>
