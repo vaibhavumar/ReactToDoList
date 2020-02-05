@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import removeFromList from '../redux/actions/removeListItem';
 import { List, Checkbox } from 'antd';
+import ListSort from '../Animations/listsort'
 
 class ConnectedToDoList extends React.Component{
     constructor(props){
@@ -17,16 +18,17 @@ class ConnectedToDoList extends React.Component{
     }
     
    render(){
-     return (
-      <List
-    itemLayout="horizontal"
-    dataSource={this.props.todoList}
-    renderItem={(item,index) => (
-      <List.Item>
+     const childrenToRender = this.props.todoList.map((item,index) => (
+      <List.Item key={item.key}>
         <Checkbox onChange={(event)=>this.checkBoxChange(event,index)}>{item.todos}</Checkbox>
       </List.Item>
-    )}
-  />
+    ));
+     return (
+      <List itemLayout="horizontal">
+        <ListSort>
+          {childrenToRender}
+        </ListSort>
+      </List>
      )
   }
   }
