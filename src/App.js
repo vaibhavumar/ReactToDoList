@@ -1,29 +1,34 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ToDoList from '../src/Components/list';
-import './redux';
+import addToList from './redux/actions/addListItem';
 import {connect} from 'react-redux';
+import {Form, Input} from 'antd';
 
-let keyCount = 1; 
+const ListForm = (props) => {
 
-const App = (props) => {
-  const [input, updateInput] = useState('');
-  const [todoList, updateList] = useState([]);
-
-  const addToList = (value) => {
-    updateList(todoList.concat({
-      key: keyCount++ ,
-      todos: value
-    }));
-    updateInput('');
+  const addToList = () => {
+    props.form.validateFields((err, values)=>{
+      if(!err){
+        props.submitNewItemToList(values.value);
+        props.form.resetFields();
+      }
+    });
   }
+
+  const {getFieldDecorator} = props.form;
 
   return (
     <div className="App">
-      <form onSubmit={}>
-        <input type="text" value={input} onChange={(e)=>updateInput(e.target.value)} />
-        <button onClick={()=>addToList(input)}>ADD</button>
-        <ToDoList todoList={todoList} updateList={updateList}/>
-      </form>    
+      <Form layout="inline">
+      <Form.Item>
+                {getFieldDecorator('value', {
+                    rules: [{ required: true, message: 'List item is required' }],
+                })(
+                    <Input.Search enterButton="ADD" onSearch={()=>addToList()} style={{width: '800px'}} />
+                )}
+            </Form.Item>
+      </Form>
+        <ToDoList />
     </div>
   );
 }
@@ -34,6 +39,8 @@ const mapDispatchToProps = (dispatch) => {
   };
 }
 
+const WrapperForm = Form.create()(ListForm);
 
+const App = connect(null, mapDispatchToProps)(WrapperForm);
 
 export default App;
