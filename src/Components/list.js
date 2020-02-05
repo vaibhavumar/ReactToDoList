@@ -1,5 +1,4 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import { List, Checkbox } from 'antd';
 
 class ToDoList extends React.Component{

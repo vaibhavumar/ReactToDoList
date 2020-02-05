@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import ToDoList from '../src/Components/list';
-
+import './redux';
+import {connect} from 'react-redux';
 
 let keyCount = 1; 
 
@@ -26,5 +27,13 @@ const App = (props) => {
     </div>
   );
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    submitNewItemToList : (item) => dispatch(addToList(item))
+  };
+}
+
+
 
 export default App;

@@ -1,0 +1,2 @@
+export const ADD_TO_LIST = 'ADD ITEM TO LIST';
+export const REMOVE_FROM_LIST = 'POP ITEM FROM LIST';
