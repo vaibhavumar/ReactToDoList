@@ -1,11 +1,22 @@
 import React from 'react';
-import ToDoList from '../src/Components/list';
+import InCompleteToDoList from './Components/InCompleteList';
 import addToList from './redux/actions/addListItem';
 import {connect} from 'react-redux';
 import {Form, Input} from 'antd';
 
 const ListForm = (props) => {
 
+  /*
+
+[].map((value, index))
+
+  {
+    key1: {djgsfgsdf},
+    key2: {sdfsdf}
+  }
+
+  obj.map((value, key)=>{})
+  */
   const addToList = () => {
     props.form.validateFields((err, values)=>{
       if(!err){
@@ -28,7 +39,7 @@ const ListForm = (props) => {
                 )}
             </Form.Item>
       </Form>
-        <ToDoList />
+        <InCompleteToDoList />
     </div>
   );
 }
