@@ -26,13 +26,15 @@ render(){
     <Checkbox defaultChecked onChange={(event)=>this.checkBoxChange(item.key)}><del>{item.todos}</del></Checkbox>
   </List.Item>
 ));
+if(childrenToRender.length)
  return (
   <List itemLayout="horizontal">
     <ListSort>
       {childrenToRender}
     </ListSort>
   </List>
- )
+ );
+ return (<></>);
 }
 }
 

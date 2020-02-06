@@ -24,13 +24,15 @@ class ConnectedInCompToDoList extends React.Component{
         <Checkbox onChange={(event)=>this.checkBoxChange(item.key)}>{item.todos}</Checkbox>
       </List.Item>
     ));
+    if(childrenToRender.length)
      return (
       <List itemLayout="horizontal">
         <ListSort>
           {childrenToRender}
         </ListSort>
       </List>
-     )
+     );
+    return (<></>);
   }
   }
 

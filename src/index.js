@@ -10,7 +10,7 @@ import {Layout} from 'antd';
 ReactDOM.render(
     <Provider store={store}>
     <Layout>
-        <Layout.Content style={{marginRight: 'auto',marginLeft:'auto'}}>
+        <Layout.Content style={{marginRight: 'auto',marginLeft:'auto', marginTop:'auto',marginBottom:'auto'}}>
             <App />
         </Layout.Content>
     </Layout>
