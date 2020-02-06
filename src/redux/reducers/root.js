@@ -11,7 +11,6 @@ const rootReducer = (state = ToDoList, action) => {
             return state.map((item) => {
                 if(item.key === action.key){
                     item.checked = true;
-                    return item;
                 }
                 return item;
             });
@@ -19,7 +18,6 @@ const rootReducer = (state = ToDoList, action) => {
             return state.map((item) => {
                 if(item.key === action.key){
                     item.checked = false;
-                    return item;
                 }
                 return item;
             });

@@ -7,17 +7,6 @@ import CompletedToDoList from './Components/CompletedList';
 
 const ListForm = (props) => {
 
-  /*
-
-[].map((value, index))
-
-  {
-    key1: {djgsfgsdf},
-    key2: {sdfsdf}
-  }
-
-  obj.map((value, key)=>{})
-  */
   const addToList = () => {
     props.form.validateFields((err, values)=>{
       if(!err){
