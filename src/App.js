@@ -3,6 +3,7 @@ import InCompleteToDoList from './Components/InCompleteList';
 import addToList from './redux/actions/addListItem';
 import {connect} from 'react-redux';
 import {Form, Input} from 'antd';
+import CompletedToDoList from './Components/CompletedList';
 
 const ListForm = (props) => {
 
@@ -40,6 +41,7 @@ const ListForm = (props) => {
             </Form.Item>
       </Form>
         <InCompleteToDoList />
+        <CompletedToDoList/>
     </div>
   );
 }
